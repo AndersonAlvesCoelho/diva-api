@@ -26,19 +26,19 @@ Crie um arquivo `.env` na raiz do repositório com base no `.env.example`:
 cp .env.example .env
 ```
 
-| Variável | Descrição |
-|---|---|
-| `PORT` | Porta em que a API vai escutar (padrão: `3000`) |
-| `NODE_ENV` | Ambiente de execução (`development` ou `production`) |
-| `FRONTEND_URL` | URL do frontend, usada na configuração do CORS |
-| `AZURE_CLIENT_ID` | Client ID do App Registration no Microsoft Entra ID |
-| `AZURE_TENANT_ID` | Tenant ID do Microsoft Entra ID |
-| `AZURE_CLIENT_SECRET` | Client Secret do App Registration |
-| `SP_DRIVE_ID_CTRL` | Drive ID do SharePoint — Planilha de Controle de Voos |
-| `SP_ITEM_ID_CTRL` | Item ID do SharePoint — Planilha de Controle de Voos |
-| `SP_DRIVE_ID_OS` | Drive ID do SharePoint — Planilha de Controle de Horas |
-| `SP_ITEM_ID_OS` | Item ID do SharePoint — Planilha de Controle de Horas |
-| `SP_SITE_ID_OS` | Site ID do SharePoint — Planilha de Controle de Horas |
+| Variável              | Descrição                                              |
+| --------------------- | ------------------------------------------------------ |
+| `PORT`                | Porta em que a API vai escutar (padrão: `3000`)        |
+| `NODE_ENV`            | Ambiente de execução (`development` ou `production`)   |
+| `FRONTEND_URL`        | URL do frontend, usada na configuração do CORS         |
+| `AZURE_CLIENT_ID`     | Client ID do App Registration no Microsoft Entra ID    |
+| `AZURE_TENANT_ID`     | Tenant ID do Microsoft Entra ID                        |
+| `AZURE_CLIENT_SECRET` | Client Secret do App Registration                      |
+| `SP_DRIVE_ID_CTRL`    | Drive ID do SharePoint — Planilha de Controle de Voos  |
+| `SP_ITEM_ID_CTRL`     | Item ID do SharePoint — Planilha de Controle de Voos   |
+| `SP_DRIVE_ID_OS`      | Drive ID do SharePoint — Planilha de Controle de Horas |
+| `SP_ITEM_ID_OS`       | Item ID do SharePoint — Planilha de Controle de Horas  |
+| `SP_SITE_ID_OS`       | Site ID do SharePoint — Planilha de Controle de Horas  |
 
 > As variáveis Azure e SharePoint são obrigatórias. Sem elas a API sobe mas falha ao tentar autenticar com o Microsoft Graph.
 
@@ -98,15 +98,15 @@ docker compose -f docker-compose.prod.yml pull
 docker compose -f docker-compose.prod.yml up -d
 ```
 
-O deploy é executado automaticamente a cada push na branch `main` via `.github/workflows/deploy.yml`. As variáveis de ambiente em produção devem estar em um arquivo `.env` no diretório `/opt/diva/api/` do servidor CGTI.
+O deploy é executado automaticamente a cada push na branch `master` via `.github/workflows/deploy.yml`. As variáveis de ambiente em produção devem estar em um arquivo `.env` no diretório `/opt/diva/api/` do servidor CGTI.
 
 ---
 
 ## Diferença entre frontend e backend no Docker
 
-| | diva-frontend | diva-api |
-|---|---|---|
-| Variáveis lidas em | Tempo de build | Runtime |
-| Mudar uma variável exige | Reconstruir a imagem | Só restartar o container |
-| Imagem final contém | Nginx + arquivos estáticos | Node.js + código compilado |
-| Porta exposta | 80 (interno) / 8080 (host) | 3000 |
+|                          | diva-frontend              | diva-api                   |
+| ------------------------ | -------------------------- | -------------------------- |
+| Variáveis lidas em       | Tempo de build             | Runtime                    |
+| Mudar uma variável exige | Reconstruir a imagem       | Só restartar o container   |
+| Imagem final contém      | Nginx + arquivos estáticos | Node.js + código compilado |
+| Porta exposta            | 80 (interno) / 8080 (host) | 3000                       |
