@@ -21,7 +21,7 @@ API REST do sistema DIVA (Dados Integrados de Voos e Aeronaves), desenvolvida pa
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/icmbio/diva-api.git
+git clone https://github.com/andersonalvescoelho/diva-api.git
 cd diva-api
 ```
 
@@ -116,4 +116,4 @@ diva-api/
 
 ## Repositório relacionado
 
-- [diva-frontend](https://github.com/icmbio/diva-frontend) — Interface web do sistema DIVA
+- [diva-frontend](https://github.com/andersonalvescoelho/diva-frontend) — Interface web do sistema DIVA
