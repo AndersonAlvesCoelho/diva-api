@@ -1,0 +1,22 @@
+# docker-compose.yml — uso local (build a partir do código-fonte)
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: diva-api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: ${PORT:-3000}
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:8080}
+      AZURE_CLIENT_ID: ${AZURE_CLIENT_ID}
+      AZURE_TENANT_ID: ${AZURE_TENANT_ID}
+      AZURE_CLIENT_SECRET: ${AZURE_CLIENT_SECRET}
+      SP_DRIVE_ID_CTRL: ${SP_DRIVE_ID_CTRL}
+      SP_ITEM_ID_CTRL: ${SP_ITEM_ID_CTRL}
+      SP_DRIVE_ID_OS: ${SP_DRIVE_ID_OS}
+      SP_ITEM_ID_OS: ${SP_ITEM_ID_OS}
+      SP_SITE_ID_OS: ${SP_SITE_ID_OS}
